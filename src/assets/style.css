@@ -1,7 +1,12 @@
 .imgGlasses{
-    width: 5%;
-    margin-right: 15px;
+    width: 15%;
+    margin-right: 20px;
     cursor: pointer;
+}
+
+body{
+    background-image: url("../assets/img/glassesImage/background.jpg");
+    background-size: cover;
 }
 
 .main-content{
@@ -17,6 +22,8 @@
     top: 100%;
     left: -150%;
     right: -150%;
+    background-color: white;
+    height: 200px;
 }
 
 #avatar img{
@@ -26,6 +33,7 @@
     width: 238px;
     height: 85px;
     opacity: 0.9;
+    display: none;
 }
 #avatar{
     background-image: url('../assets/img/glassesImage/model.jpg');
