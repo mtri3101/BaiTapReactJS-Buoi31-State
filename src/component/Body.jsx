@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import '../assets/style.css'
+import Glasses from './Glasses'
 
 const dataGlasses = [
     {
@@ -70,15 +71,22 @@ const dataGlasses = [
 export default class Body extends Component {
 
     state = {
-        data: '',
+        data: {
+            "id": 1,
+            "price": 30,
+            "name": "GUCCI G8850U",
+            "url": "./glassesImage/v1.png",
+            "desc": "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. "
+        },
     }
 
     renderGlasses = () => {
         return dataGlasses.map((item, index) => {
             return (
-                <img src={item.url} alt="" key={index} className="imgGlasses" onClick={() => {
-                    this.renderAvatar(item)
-                }} />
+                // <img src={item.url} alt="" key={index} className="imgGlasses" onClick={() => {
+                //     this.renderAvatar(item)
+                // }} />
+                <Glasses prod={item} key={index} renderAvatar={this.renderAvatar} />
             )
         })
     }
@@ -99,15 +107,18 @@ export default class Body extends Component {
     render() {
         return (
             <div className='container'>
-                <div className="text-center main-content">
-                    <div id='avatar'>
+                <div className="row justify-content-between">
+                    <div className='col-6 avatar'>
+                    </div>
+                    <div id='avatar' className='col-6 avatar'>
                         <img src={this.state.data.url} alt="" />
+                        <div id='glassesInfo'>
+                            <h1 class="text-info">{this.state.data.name}</h1>
+                            <a class="price">{this.state.data.price}$</a>
+                            <p class="mt-3">{this.state.data.desc}</p>
+                        </div>
                     </div>
-                    <div id='glassesInfo'>
-                        <h1 class="text-info">{this.state.data.name}</h1>
-                        <a class="price">{this.state.data.price}$</a>
-                        <p class="mt-3">{this.state.data.desc}</p>
-                    </div>
+
                     <div className="mt-5">
                         <h1 className='text-center mb-5'>Virtual Glasses</h1>
                         <div className="text-center glasses">
